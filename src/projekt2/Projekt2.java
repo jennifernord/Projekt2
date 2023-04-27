@@ -4,21 +4,22 @@ import java.util.Arrays;
 
 public class Projekt2 {
     //Alla variabler som behövs i metoderna nedan
-    static String fält[] = {"f0", "0", "0", "f0", "f0", "0", "0", "f0", "f0", "0", "0", "f0", "f0", "0", "0", "f0", "f0", "0", "0", "0", "f0"};
+    static String fält[] = {"f0", "0", "0", "f0", "f0", "0", "0", "f0", "f0", "0", "0", "f0", "f0", "0", "0", "f0", "f0", "0", "0", "0", "f0"};//Fält med alla platser
     
-    static void boka_plats(String plats, String fält[],int födelsedatum){
-        int index = plats.indexOf("y");
-        if(index!=-1){
-            int fplats = Arrays.asList(fält).indexOf("f0");
-            if(fplats>-1){
-                String födelsedatum_string=Integer.toString(födelsedatum);
-                fält[fplats] = födelsedatum_string;
+    static void boka_plats(String plats, String fält[],int födelsedatum){//metod för att boka plats
+        int index = plats.indexOf("y");//Om du svarat ja på om du vill ha fönsterplats får index-variabeln ett positivt värde
+        if(index!=-1){//Om du svarat ja, alltså att index-variabeln är >/= 0, följer koden nedan
+            int fplats = Arrays.asList(fält).indexOf("f0");//Här letas första möjliga fönsterplats i fältet upp
+            if(fplats>-1){//Har fönsterplatsen hittats följer koden nedan
+                String födelsedatum_string=Integer.toString(födelsedatum);//Gör om variabeln födelsedatum från int till String för att vara kompatibel
+                fält[fplats] = födelsedatum_string;//Byter ut "f0" till den bokades födelsedatum
                 System.out.println("Din bokning finns på plats " +fplats+1);
             }
         }
-        if(index<0){
-            int ifplats = Arrays.asList(fält).indexOf("0");
-            if(ifplats>-1){
+        //hkdsajdh
+        if(index<0){//Om "y" inte hittats på ditt svar om fönsterplats eller inte följer koden nedan
+            int ifplats = Arrays.asList(fält).indexOf("0");//Här letas första möjliga plats som inte är en fönsterplats
+            if(ifplats>-1){//Om en plats hittas, alltså att variabeln ifplats>-1
                 String födelsedatum_string=Integer.toString(födelsedatum);
                 fält[ifplats] = födelsedatum_string;
                 System.out.println("Din bokning finns på plats" +ifplats+1);
